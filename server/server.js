@@ -9,6 +9,9 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
+const path = require("path")
+app.use(express.static(path.join(__dirname, "client", "build")))
+
 var PORT = process.env.PORT || 5000; //if not running on heroku, use port 3000
 
 //MongoDB connection
@@ -20,6 +23,10 @@ db.connect()
         process.exit(1);
     });
 
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
 });

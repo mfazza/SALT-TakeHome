@@ -53,7 +53,7 @@ exports.getRecordByName = (req, res) => {
     let name = req.params.child;
     queryByName({ "name": name })
         .then((resolution) => res.status(200).send(resolution))
-        .catch(err => res.status(200).send())
+        .catch(err => res.status(404).send())
 }
 
 exports.trade = (req, res) => {
@@ -66,5 +66,5 @@ exports.trade = (req, res) => {
 
     tradeCoin({ "name": name }, coin1, coin2, newAmount1, newAmount2)
         .then((resolution) => res.status(200).send(resolution["value"]))
-        .catch(err => res.status(200).send())
+        .catch(err => res.status(404).send())
 }
