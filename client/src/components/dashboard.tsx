@@ -13,8 +13,10 @@ class Dashboard extends React.Component<IProps, IState> {
     constructor(props: any) {
         super(props)
 
+        this.refreshWallet = this.refreshWallet.bind(this)
+
         this.state = {
-            name: "",
+            name: this.props.name,
             usdCount: -1,
             btcCount: -1,
             ltcCount: -1,
@@ -27,9 +29,11 @@ class Dashboard extends React.Component<IProps, IState> {
 
     //important: this function is passed as a prop to trader so when a trade is made, that child component can update the parent
     refreshWallet() {
-        fetch("https://salt-trader.herokuapp.com/child/" + this.props.name)
+        fetch("http://localhost:5000/child/" + this.props.name)
             .then(response => response.json())
             .then(responseJson => {
+                console.log("WHY AM I RUNNING?");
+
                 this.setState({
                     name: this.props.name,
                     usdCount: responseJson.usd,
@@ -57,6 +61,7 @@ class Dashboard extends React.Component<IProps, IState> {
     *   if the state of the parent changes, it will also update this component. 
     *   This method is invoked before a mounted component receives new props.
     */
+
     componentWillReceiveProps() {
         this.setState({
             name: this.props.name
@@ -89,10 +94,10 @@ class Dashboard extends React.Component<IProps, IState> {
                         ltcPrice={this.props.ltc}
                         dogePrice={this.props.doge}
                         xmrPrice={this.props.xmr}
-                        refreshFunction={this.refreshWallet()}>
+                        refreshFunction={this.refreshWallet}>
                     </Trader>
                 </div>
-            </div>
+            </div >
         )
     }
 

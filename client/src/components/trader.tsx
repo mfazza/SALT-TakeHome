@@ -21,7 +21,7 @@ export interface IProps {
     ltcPrice: number;
     dogePrice: number;
     xmrPrice: number;
-    refreshFunction: void;
+    refreshFunction: any;
 }
 
 /* States *
@@ -113,13 +113,12 @@ class Trader extends React.Component<IProps, IState> {
                 newAmount2 = (this.state.amountOrigin * this.state.priceOrigin) + this.state.walletTarget
             }
 
-
-            fetch("https://salt-trader.herokuapp.com/child/" + this.props.name, {
+            fetch("http://localhost:5000/child/" + this.props.name, {
                 method: 'put',
                 headers: { 'Content-Type': 'application/json', },
                 body: JSON.stringify({ coin1: this.state.coinOrigin, coin2: this.state.coinTarget, amount1: newAmount1, amount2: newAmount2 }),
             })
-                .then(() => this.props.refreshFunction)
+                .then(() => this.props.refreshFunction())
                 .catch((err) => console.log(err))
         } else {
             console.log("Transaction not valid");

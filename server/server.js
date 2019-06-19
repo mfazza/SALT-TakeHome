@@ -9,10 +9,7 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
-const path = require("path")
-app.use(express.static(path.join(__dirname, "client", "build")))
-
-var PORT = process.env.PORT || 5000; //if not running on heroku, use port 3000
+var PORT = process.env.PORT || 5000; //if not running on heroku, use port 5000
 
 //MongoDB connection
 db.connect()
@@ -24,14 +21,12 @@ db.connect()
     });
 
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
 });
 
-//  CHANGE IT TO POST
+
 //  POST route to insert a grandchild into the database
 //  ARGS: json key value pair such as { "Taylor": 10000 } included in the body of the request
 //  RES: 201 or 404 codes

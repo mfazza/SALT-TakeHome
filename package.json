@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/server.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "dev": "nodemon ./server/server.js",
+    "both": "npm start & npm start --prefix client"
   },
   "keywords": [
     "salt",
@@ -15,12 +16,12 @@
   "author": "Matt Fazza",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.2.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
