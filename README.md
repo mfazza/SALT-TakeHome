@@ -10,14 +10,16 @@ A simple full-stack web application to simulate cryptocurrency trading.  Note: t
 - [Requirements](#Requirements)
 
 ## How to run it
-```
-1. *git clone* the repo.
-2. go into the client folder *cd client*
-3. *npm install*
-4. go back to the root folder *cd ..*
-5. *npm install*
-6. *npm run both* to run both the backend and the front-end
-```
+
+Clone the repo;  In the client folder **npm install**; In the root folder **npm install**; run **npm run both**.  Step by step is described below:
+
+1. **git clone** the repo.
+2. go into the cloned folder with **cd SALT-TakeHome**
+3. go into the client folder with **cd client**
+4. **npm install**
+5. go back to the root folder with **cd ..**
+6. **npm install**
+7. **npm run both** to run both the backend and the front-end
 
 ## How to use it
 
@@ -50,6 +52,8 @@ The server runs on port 5000 and the client runs on port 3000.
 The ControlPannel Component passes the name selected on the homepage to the Manager Component.  The Manager makes API calls to retrieve crypto prices and passes those down to Dashboard and Tracker.  Tracker displays crypto prices while Dashboard makes API calls to the database and displays the person's assets.  Dashboard passes assets and prices to the trader.  Whenever a trade is made, the Trade component sends a function call to update the dashboard.
 
 In order: ControlPannel -> Manager -> Tracker.  Dashboard -> Trader.
+
+*The MongoDB URI is exclusive to this application.  Although it's not safe to hard code keys, because of the context this doesn't provide any security vulnerability.
 
 ## Requirements
 
