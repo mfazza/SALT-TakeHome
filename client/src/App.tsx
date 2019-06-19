@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <div className="App">
 
       <BrowserRouter>
-        <h1>Welcome to Grampa Donald's Crypto Trader</h1>
+        <h1>CryptoTrader</h1>
         <h2>Select your name below.</h2>
         <div className="master-bar">
           <Link to="/Dakota">Dakota</Link>

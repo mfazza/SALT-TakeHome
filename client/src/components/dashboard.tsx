@@ -32,8 +32,6 @@ class Dashboard extends React.Component<IProps, IState> {
         fetch("http://localhost:5000/child/" + this.props.name)
             .then(response => response.json())
             .then(responseJson => {
-                console.log("WHY AM I RUNNING?");
-
                 this.setState({
                     name: this.props.name,
                     usdCount: responseJson.usd,

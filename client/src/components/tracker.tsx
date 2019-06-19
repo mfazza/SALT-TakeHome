@@ -6,11 +6,11 @@ const Tracker: React.SFC<IProps> = (props) => {
 
     return (
         <div style={{ border: "1px solid red" }}>
-            Current Prices: {'     '}
-            <div style={{ display: "inline-block" }}> BTC: {props.btc} USD {'  '} - </div>
-            <div style={{ display: "inline-block" }}> LTC: {Number(props.ltc).toFixed(6)} BTC {'  '}- </div>
-            <div style={{ display: "inline-block" }}> DOGE: {Number(props.doge).toFixed(6)} BTC {'  '}- </div>
-            <div style={{ display: "inline-block" }}> XMR: {Number(props.xmr).toFixed(6)} BTC </div>
+            Current Prices {'     '}
+            <div style={{ display: "inline-block" }}> BTC: {props.btc} USD {'  '} / </div>
+            <div style={{ display: "inline-block" }}> LTC: {props.ltc} BTC {'  '} / </div>
+            <div style={{ display: "inline-block" }}> DOGE: {props.doge} BTC {'  '}/ </div>
+            <div style={{ display: "inline-block" }}> XMR: {props.xmr} BTC </div>
         </div>
     )
 }
